@@ -12,6 +12,7 @@ using namespace std;
 
 const int MAX = 43;
 char * toPigLatin(char* word);
+bool isVowel(char ch);
 
 int main()
 {
@@ -33,12 +34,27 @@ int main()
 	//  that a pointer to this string is also being returned from the function.
 
 	cout << toPigLatin(word[3]) << ' '
-		<< toPigLatin(word[4]) << '\n';return 0;
+		<< toPigLatin(word[4]) << '\n';
+	
+	system("pause");
+	return 0;
 }
 
 char * toPigLatin(char * word)
 {
+	// Find index of first vowel
+	int vowelIndex = -1;
+	for (size_t i = 0; strlen(word); ++i) 
+	{
+		if (isVowel(word[i])) {
+			vowelIndex = i;
+			break;
+		}
+	}
+	return word;
+}
 
-	return ;
+bool isVowel(char ch) {
+	return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
 }
 
